@@ -32,9 +32,19 @@ const social: Social = [
     link: "https://www.linkedin.com/in/muhdsulthan/",
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "TryHackMe",
+    icon: "tryhackme",
+    link: "https://tryhackme.com/p/muhdsulthan1",
+  },
+  {
+    name: "Credly",
+    icon: "credly",
+    link: "https://www.credly.com/users/muhdsulthan",
+  },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://www.instagram.com/muhdzulthan?igsh=bXFxdnQ1bGJiMHpi",
   },
   {
     name: "Email",
@@ -98,7 +108,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I am Maxy, an aspiring cybersecurity student with a strong interest in safeguarding
+        I am Sulthan, an aspiring cybersecurity student with a strong interest in safeguarding
         digital systems and data. My experience spans VM server hosting, technical report 
         writing, and hands-on exploration of cybersecurity concepts. I am also actively
         engaged in research on quantum computing, where I explore its impact on the future
