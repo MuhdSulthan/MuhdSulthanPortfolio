@@ -28,12 +28,34 @@ import {
   SiFigma,
   SiSupabase,
   SiTryhackme,
-  SiCredly
+  SiCredly,
 } from "react-icons/si";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaInstagram } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaInstagram,
+} from "react-icons/fa6";
 
+//
+// Define social keys (strong typing)
+//
+export type SocialKey =
+  | "github"
+  | "linkedin"
+  | "x"
+  | "instagram"
+  | "discord"
+  | "tryhackme"
+  | "credly";
+
+//
+// Main icon library
+//
 export const iconLibrary: Record<string, IconType> = {
+  // UI icons
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
   email: HiEnvelope,
@@ -45,20 +67,26 @@ export const iconLibrary: Record<string, IconType> = {
   calendar: HiCalendarDays,
   home: PiHouseDuotone,
   gallery: PiImageDuotone,
-  tryhackme: SiTryhackme,
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
-  github: FaGithub,
-  linkedin: FaLinkedin,
-  x: FaX,
-  credly: SiCredly,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
+
+  // Tech stack icons
   javascript: SiJavascript,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+
+  // Social icons
+  github: FaGithub,
+  linkedin: FaLinkedin,
+  x: FaX, // Twitter (X)
+  instagram: FaInstagram,
+  discord: FaDiscord,
+  tryhackme: SiTryhackme,
+  credly: SiCredly,
 };
 
 export type IconLibrary = typeof iconLibrary;
