@@ -98,9 +98,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I am Maxy, an aspiring cybersecurity student with a strong interest in safeguarding
+        digital systems and data. My experience spans VM server hosting, technical report 
+        writing, and hands-on exploration of cybersecurity concepts. I am also actively
+        engaged in research on quantum computing, where I explore its impact on the future
+        of security.
       </>
     ),
   },
@@ -155,12 +157,12 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Ilahia College Of Engineering And Technology",
+        description: <>Studied B.Tech in CSE (Cyber Security).</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Google Cybersecurity",
+        description: <>Studied a professional cybersecurity from google.</>,
       },
     ],
   },
