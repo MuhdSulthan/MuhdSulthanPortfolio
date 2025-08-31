@@ -28,6 +28,7 @@ import {
   SiFigma,
   SiSupabase,
   SiTryhackme,
+  SiCredly
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaInstagram } from "react-icons/fa6";
