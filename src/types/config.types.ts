@@ -145,6 +145,9 @@ export type SameAsConfig = {
   threads: string;
   linkedin: string;
   discord: string;
+  tryhackme: string;  
+  credly: string;  
+  instagram: string;
 };
 
 /**
