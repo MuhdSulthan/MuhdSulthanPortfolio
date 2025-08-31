@@ -59,12 +59,12 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Securing tomorrow through today’s learning</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Secure Future</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
@@ -75,14 +75,10 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Sulthan, an aspiring Cyber Security student at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Sulthan, an aspiring Cybersecurity student, Welcome to my 
+      <strong className="ml-4">Playground</strong>{" "}
+      , where I craft intuitive secured
+      <br />experiences through Construct-and-Deconstruct method.
     </>
   ),
 };
