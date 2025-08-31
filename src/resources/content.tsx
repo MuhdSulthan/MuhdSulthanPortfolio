@@ -121,41 +121,41 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Kerala Police",
+        timeframe: "June 2025 - July 2025",
+        role: "Cyber Security Intern",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Engineered and deployed pfSense firewall to secure and monitor 100+ simulated
+            network packets per second in a controlled virtual lab environment.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Worked with cyber forensic tools including True Imager and Magnet AXIOM for
+            evidence acquisition and analysis
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
             src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            alt: "Kepa Project",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Alibi Global Pvt.Ltd.",
+        timeframe: "May 2024 - July 2024",
+        role: "Cyber Forensic Inter",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Conducted forensic analysis on 3 criminal case studies, uncovering critical
+            evidence that contributed to successful legal proceedings.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Applied Magnet AXIOM and Cellebrite UFED 4PC to recover deleted data from
+            7+ devices, strengthening digital evidence integrity. 
           </>,
         ],
         images: [],
@@ -208,7 +208,7 @@ const about: About = {
         ],
       },
       {
-        title: "Next.js",
+        title: "Python",
         description: (
           <>Building next gen apps with Next.js + Once UI + Supabase.</>
         ),
