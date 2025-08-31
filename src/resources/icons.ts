@@ -50,7 +50,7 @@ export const iconLibrary: Record<string, IconType> = {
   eyeOff: HiOutlineEyeSlash,
   github: FaGithub,
   linkedin: FaLinkedin,
-  x: FaInstagram,
+  x: FaX,
   credly: SiCredly,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
