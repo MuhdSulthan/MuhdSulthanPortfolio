@@ -13,7 +13,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://muhdsulthan.vercel.app/";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -194,9 +194,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
+  Credly: "https://www.credly.com/users/muhdsulthan",
   linkedin: "https://www.linkedin.com/in/muhdsulthan/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  discord: "https://tryhackme.com/p/muhdsulthan1",
 };
 
 export {
