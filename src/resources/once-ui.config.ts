@@ -194,9 +194,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  credly: "https://www.credly.com/users/muhdsulthan",
   linkedin: "https://www.linkedin.com/in/muhdsulthan/",
   tryhackme: "https://tryhackme.com/p/muhdsulthan1",
+  credly: "https://www.credly.com/users/muhdsulthan",
 };
 
 export {
