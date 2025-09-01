@@ -308,7 +308,7 @@ const gallery: Gallery = {
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-6.heic",
+      src: "/images/gallery/horizontal-6.jpg",
       alt: "image",
       orientation: "horizontal",
     },
