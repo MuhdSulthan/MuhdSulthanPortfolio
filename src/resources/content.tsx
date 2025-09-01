@@ -298,6 +298,11 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
+      src: "/images/gallery/horizontal-5.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
       src: "/images/gallery/vertical-3.jpg",
       alt: "image",
       orientation: "vertical",
