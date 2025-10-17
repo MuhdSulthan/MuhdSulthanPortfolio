@@ -1,0 +1,248 @@
+.terminalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.terminal {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 900px;
+  height: 70vh;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace;
+}
+
+.terminalHeader {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+}
+
+.terminalTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f0f6fc;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.terminalIcon {
+  color: #ffd700;
+  font-size: 1rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #8b949e;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #30363d;
+    color: #f85149;
+  }
+}
+
+.terminalBody {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #0d1117;
+  color: #e6edf3;
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #161b22;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+  }
+}
+
+.commandBlock {
+  margin-bottom: 0.5rem;
+}
+
+.commandInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.prompt {
+  color: #7c3aed;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.command {
+  color: #58a6ff;
+  font-weight: 500;
+}
+
+.timestamp {
+  color: #8b949e;
+  font-size: 0.75rem;
+  margin-left: auto;
+}
+
+.commandOutput {
+  color: #e6edf3;
+  padding-left: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  &:empty {
+    height: 1.5em;
+  }
+
+  // Style for different types of output
+  &:has-text("🏆"), &:has-text("🛡️"), &:has-text("📜"), &:has-text("💼"), &:has-text("🚀"), &:has-text("🌐"), &:has-text("📋") {
+    color: #ffd700;
+    font-weight: 600;
+  }
+
+  // Style for bullet points and tree structures
+  &:contains("•"), &:contains("├─"), &:contains("└─") {
+    color: #7ee787;
+  }
+
+  // Style for URLs
+  &:contains("https://") {
+    color: #58a6ff;
+  }
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.terminalInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e6edf3;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  caret-color: #7c3aed;
+
+  &::selection {
+    background: #58a6ff33;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .terminalOverlay {
+    padding: 1rem;
+  }
+
+  .terminal {
+    height: 80vh;
+    max-height: none;
+  }
+
+  .terminalBody {
+    font-size: 0.8rem;
+  }
+
+  .commandInput {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .timestamp {
+    margin-left: 0;
+  }
+}
+
+// Animation for terminal appearance
+.terminal {
+  animation: terminalSlideIn 0.3s ease-out;
+}
+
+@keyframes terminalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Cybersecurity themed colors and effects
+.commandOutput {
+  // Highlight security-related keywords
+  &:contains("firewall"), &:contains("forensics"), &:contains("security") {
+    color: #ff7b72;
+  }
+
+  &:contains("pfSense"), &:contains("AXIOM"), &:contains("Cellebrite") {
+    color: #ffa657;
+  }
+
+  &:contains("Python"), &:contains("JavaScript"), &:contains("VMware") {
+    color: #79c0ff;
+  }
+}
+
+// Blinking cursor effect
+.terminalInput::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1em;
+  background: #7c3aed;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

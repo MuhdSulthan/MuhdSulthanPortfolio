@@ -1,0 +1,368 @@
+import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { Line, Logo, Row, Text } from "@once-ui-system/core";
+
+const person: Person = {
+  firstName: "Muhammad",
+  lastName: "Sulthan",
+  name: `Muhammad Sulthan`,
+  role: "Cyber Security Student",
+  avatar: "/images/avatar.jpg",
+  email: "muhdsulthan1@gmail.com",
+  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Malayalam", "Hindi"], // optional: Leave the array empty if you don't want to display languages
+};
+
+const newsletter: Newsletter = {
+  display: true,
+  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  description: <>My weekly newsletter about creativity and engineering</>,
+};
+
+const social: Social = [
+  // Links are automatically displayed.
+  // Import new icons in /once-ui/icons.ts
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/MuhdSulthan",
+  },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/in/muhdsulthan/",
+  },
+  {
+    name: "TryHackMe",
+    icon: "tryhackme",
+    link: "https://tryhackme.com/p/muhdsulthan1",
+  },
+  {
+    name: "Credly",
+    icon: "credly",
+    link: "https://www.credly.com/users/muhdsulthan",
+  },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://www.instagram.com/muhdzulthan?igsh=bXFxdnQ1bGJiMHpi",
+  },
+  {
+    name: "Email",
+    icon: "email",
+    link: `mailto:${person.email}`,
+  },
+];
+
+const home: Home = {
+  path: "/",
+  image: "/images/og/home.jpg",
+  label: "Home",
+  title: `${person.name}'s Portfolio`,
+  description: `Portfolio website showcasing my work as a ${person.role}`,
+  headline: <>Securing tomorrow through today’s learning</>,
+  featured: {
+    display: true,
+    title: (
+      <Row gap="12" vertical="center">
+        <strong className="ml-4">Secure Future</strong>{" "}
+        <Line background="brand-alpha-strong" vert height="20" />
+        <Text marginRight="4" onBackground="brand-medium">
+          Featured work
+        </Text>
+      </Row>
+    ),
+    href: "/work/pfsense-firewall-deployment",
+  },
+  subline: (
+    <>
+      I'm Sulthan, an aspiring Cybersecurity student, Welcome to my 
+      <strong className="ml-4">Playground</strong>{" "}
+      , where I craft intuitive secured
+      <br />experiences through Construct-and-Deconstruct method.
+    </>
+  ),
+};
+
+const about: About = {
+  path: "/about",
+  label: "About",
+  title: `About – ${person.name}`,
+  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  tableOfContent: {
+    display: true,
+    subItems: false,
+  },
+  avatar: {
+    display: true,
+  },
+  calendar: {
+    display: true,
+    link: "https://cal.com",
+  },
+  intro: {
+    display: true,
+    title: "Introduction",
+    description: (
+      <>
+        I am Sulthan, an aspiring cybersecurity student with a strong interest in safeguarding
+        digital systems and data. My experience spans VM server hosting, technical report 
+        writing, and hands-on exploration of cybersecurity concepts. I am also actively
+        engaged in research on quantum computing, where I explore its impact on the future
+        of security.
+      </>
+    ),
+  },
+  work: {
+    display: true, // set to false to hide this section
+    title: "Work Experience",
+    experiences: [
+      {
+        company: "Kerala Police",
+        timeframe: "June 2025 - July 2025",
+        role: "Cyber Security Intern",
+        achievements: [
+          <>
+            Engineered and deployed pfSense firewall to secure and monitor 100+ simulated
+            network packets per second in a controlled virtual lab environment.
+          </>,
+          <>
+            Worked with cyber forensic tools including True Imager and Magnet AXIOM for
+            evidence acquisition and analysis
+          </>,
+        ],
+        images: [
+          // optional: leave the array empty if you don't want to display images
+          {
+            src: "/images/projects/project-01/cover-01.jpg",
+            alt: "Kepa Project",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        company: "Alibi Global Pvt.Ltd.",
+        timeframe: "May 2024 - July 2024",
+        role: "Cyber Forensic Inter",
+        achievements: [
+          <>
+            Conducted forensic analysis on 3 criminal case studies, uncovering critical
+            evidence that contributed to successful legal proceedings.
+          </>,
+          <>
+            Applied Magnet AXIOM and Cellebrite UFED 4PC to recover deleted data from
+            7+ devices, strengthening digital evidence integrity. 
+          </>,
+        ],
+        images: [],
+      },
+    ],
+  },
+  studies: {
+    display: true, // set to false to hide this section
+    title: "Studies",
+    institutions: [
+      {
+        name: "Ilahia College Of Engineering And Technology",
+        description: <>Studied B.Tech in CSE (Cyber Security).</>,
+      },
+      {
+        name: "Google Cybersecurity",
+        description: <>Studied a professional cybersecurity from google.</>,
+      },
+    ],
+  },
+  certifications: {
+    display: true, // set to false to hide this section
+    title: "Certifications & Achievements",
+    items: [
+      {
+        name: "Google Cybersecurity Professional Certificate",
+        issuer: "Google via Coursera",
+        date: "2024",
+        description: <>Comprehensive cybersecurity program covering security frameworks, risk management, incident response, and hands-on security tools.</>,
+        credentialUrl: "https://www.credly.com/users/muhdsulthan",
+      },
+      {
+        name: "TryHackMe Active Learner",
+        issuer: "TryHackMe",
+        date: "Ongoing",
+        description: <>Hands-on cybersecurity learning platform focusing on penetration testing, digital forensics, and ethical hacking.</>,
+        credentialUrl: "https://tryhackme.com/p/muhdsulthan1",
+      },
+      {
+        name: "Digital Forensics Practitioner",
+        issuer: "Industry Experience",
+        date: "2024",
+        description: <>Practical experience with Magnet AXIOM, Cellebrite UFED 4PC, and True Imager through internship work on criminal case studies.</>,
+        credentialUrl: "",
+      },
+    ],
+  },
+  technical: {
+    display: true, // set to false to hide this section
+    title: "Technical skills",
+    skills: [
+      {
+        title: "Digital Forensics & Investigation",
+        description: (
+          <>Experienced in digital evidence acquisition and analysis using industry-standard forensic tools for criminal investigations.</>
+        ),
+        tags: [
+          {
+            name: "Magnet AXIOM",
+            icon: "shield",
+          },
+          {
+            name: "Cellebrite UFED",
+            icon: "smartphone",
+          },
+          {
+            name: "True Imager",
+            icon: "harddrive",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Network Security & Monitoring",
+        description: (
+          <>Skilled in deploying and configuring enterprise-grade security solutions for network protection and traffic analysis.</>
+        ),
+        tags: [
+          {
+            name: "pfSense Firewall",
+            icon: "shield",
+          },
+          {
+            name: "Network Analysis",
+            icon: "activity",
+          },
+          {
+            name: "Security Monitoring",
+            icon: "eye",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Programming & Scripting",
+        description: (
+          <>Proficient in multiple programming languages for security automation, tool development, and system administration.</>
+        ),
+        tags: [
+          {
+            name: "Python",
+            icon: "code",
+          },
+          {
+            name: "JavaScript",
+            icon: "javascript",
+          },
+          {
+            name: "Bash/PowerShell",
+            icon: "terminal",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Virtualization & Lab Environment",
+        description: (
+          <>Experienced in setting up and managing virtual lab environments for security testing and research purposes.</>
+        ),
+        tags: [
+          {
+            name: "VM Management",
+            icon: "server",
+          },
+          {
+            name: "Lab Setup",
+            icon: "settings",
+          },
+          {
+            name: "Security Testing",
+            icon: "shield",
+          },
+        ],
+        images: [],
+      },  
+    ],
+  },
+};
+
+const blog: Blog = {
+  path: "/blog",
+  label: "Blog",
+  title: "Writing about cybersecurity and tech...",
+  description: `Read about ${person.name}'s cybersecurity insights and research`,
+  // Create new blog posts by adding a new .mdx file to app/blog/posts
+  // All posts will be listed on the /blog route
+};
+
+const work: Work = {
+  path: "/work",
+  label: "Work",
+  title: `Projects – ${person.name}`,
+  description: `Cybersecurity and forensics projects by ${person.name}`,
+  // Create new project pages by adding a new .mdx file to app/blog/posts
+  // All projects will be listed on the /home and /work routes
+};
+
+const gallery: Gallery = {
+  path: "/gallery",
+  label: "Gallery",
+  title: `Photo gallery – ${person.name}`,
+  description: `A photo collection by ${person.name}`,
+  // Images by https://lorant.one
+  // These are placeholder images, replace with your own
+  images: [
+    {
+      src: "/images/gallery/horizontal-1.jpg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/vertical-4.jpg",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/horizontal-3.jpg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/vertical-1.jpeg",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/vertical-2.jpeg",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/horizontal-2.jpg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/horizontal-4.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/horizontal-5.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/horizontal-6.jpg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+  ],
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery };
