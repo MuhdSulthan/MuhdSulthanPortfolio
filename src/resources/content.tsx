@@ -294,7 +294,7 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about cybersecurity and tech...",
+  title: "Writing about cybersecurity, tech and myself...",
   description: `Read about ${person.name}'s cybersecurity insights and research`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
