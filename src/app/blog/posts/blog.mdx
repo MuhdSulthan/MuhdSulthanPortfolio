@@ -1,71 +1,35 @@
 ---
-title: "Create, edit and delete blog posts"
-summary: "Create, edit and delete posts in the blog section of your Magic Portfolio."
-publishedAt: "2025-03-17"
-tag: "Magic Portfolio"
+title: "Building My Portfolio – From WordPress Limits to Vercel Freedom"
+summary: "What started as a simple search turned into a personal project of creativity and self-expression — my journey from WordPress to building a modern portfolio on Vercel using One UI by Selena Yu."
+image: "/images/gallery/portfolio-journey.jpg"
+publishedAt: "2025-08-04"
+tag: "Personal Project"
 ---
 
-## Manage posts
+## About
 
-You can create, edit and delete posts by adding, modifying or removing `*.mdx` files in the `src/app/blog/posts` directory.
+It all began as a small spark — a desire to have a **digital space that truly reflected me**.  
+I had previously built a portfolio on **WordPress**, which at the time felt like a solid start. But as I grew, I started feeling **limited by its constraints** — the lack of flexibility, the minimal customization, and the constant struggle to add modern elements without paying for premium upgrades.  
 
-## Frontmatter
+There were times I felt **stuck**, creatively and technically. I wanted a platform where I could **experiment freely**, learn, and build something that matched my evolving journey in cybersecurity and technology.
 
-The frontmatter is used to set the post's metadata: title, description, image, and tags. It's used in the post's page and in meta- and open graph tags.
+One random day, while scrolling through **LinkedIn**, I came across a post about **free portfolio hosting on Vercel**. It instantly caught my attention.  
+That short post opened a whole new world to me — a world of developers sharing ideas, deploying creative projects, and showcasing their work with **complete freedom**.
 
-<CodeBlock
-    marginBottom="16"
-    codes={[
-      {
-        code:
-`---
-title: "Arriving to a new milestone in my career"
-publishedAt: "2024-04-08"
-image: "/images/gallery/img-02.jpg"
-summary: "Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path."
-tag: "Journal"
----`,
-        language: "tsx",
-        label: "src/app/blog/posts/post-1.mdx"
-      }
-    ]}
-/>
+Driven by curiosity, I began exploring frameworks and templates. That’s when I found **One UI**, created by **Selena Yu** — a simple yet beautifully designed portfolio structure that immediately clicked with me. It wasn’t just modern; it felt alive.
 
-## MDX syntax
+## My Contribution
 
-You can use MDX to write the content of your posts. It helps you write rich and dynamic content with minimal code. Some MDX elements will be automatically transformed to Once UI components to integrate better in the design and add additional functionality.
+As a **cybersecurity student**, I wanted my portfolio to represent not just my work, but also my personality — my curiosity, my passion for systems, and my love for building secure and interactive tools.  
 
-## Custom components
+So, I added my own touch:  
+an **inbuilt terminal** within the website — a unique element that allows users to interact with my portfolio in a command-line style interface. It blended creativity and identity, making the portfolio not just a static page, but a **living reflection** of who I am.
 
-You can use custom components in MDX files, but you need to import them first in the `src/components/mdx.tsx` file.
+## Reflection
 
-<CodeBlock
-    marginBottom="16"
-    highlight="11-12"
-    codes={[
-      {
-        code:
-`const components = {
-    p: createParagraph as any,
-    h1: createHeading(1) as any,
-    h2: createHeading(2) as any,
-    h3: createHeading(3) as any,
-    h4: createHeading(4) as any,
-    h5: createHeading(5) as any,
-    h6: createHeading(6) as any,
-    img: createImage as any,
-    a: CustomLink as any,
-    Table,
-    CodeBlock,
-};`,
-        language: "tsx",
-        label: "src/components/mdx.tsx"
-      }
-    ]}
-/>
+What began as a simple search on LinkedIn became **a journey of rediscovery and creation**. I learned how much freedom and satisfaction comes from **building something from the ground up**, where every pixel and function has a purpose.  
 
-As you can see, the `Table` and `CodeBlock` components are already imported and available for use. You can add more by simply importing them to this file and passing them to the `components` object.
+This experience didn’t just give me a new website — it **motivated me to keep exploring, creating, and learning** without limits.  
+Right now, as I’m writing this post, I’m still refining and improving it — one commit at a time — and I can’t help but feel proud of how far I’ve come.
 
-## Hot reload
-
-Hot reload of MDX files is currently not supported, but we're working on it.
+This portfolio project became more than a digital resume; it became **a reflection of growth, creativity, and perseverance** — a reminder that every limitation can spark a new beginning.
