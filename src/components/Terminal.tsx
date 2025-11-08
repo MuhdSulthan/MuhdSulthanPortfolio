@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { person } from '@/resources/content';
+import { getAIResponse, generateFallbackResponse } from '@/utils/aiKnowledgeBase';
+import { getBrowserAIResponse, preloadAI, getAIStatus } from '@/utils/browserAI';
 import styles from './Terminal.module.scss';
 
 interface TerminalProps {
@@ -21,6 +23,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [lastCommandTime, setLastCommandTime] = useState(0);
+  const [isProcessing, setIsProcessing] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
@@ -122,18 +125,31 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       '• exit          - Close terminal',
       '• help          - Show this help message',
       '',
+      '🤖 AI Assistant:',
+      '• ask [question] - Ask AI about expertise or cybersecurity',
+      '  Examples:',
+      '    ask what is digital forensics',
+      '    ask explain firewall',
+      '    ask about your experience',
+      '',
+      'Or simply type your question naturally!',
+      '',
       'Tip: Use ↑/↓ arrows to navigate command history',
       'Press Ctrl+` to toggle terminal',
     ],
   };
 
-  const executeCommand = (input: string) => {
+  const executeCommand = async (input: string) => {
     // Security: Rate limiting to prevent command spam
     const now = Date.now();
     if (now - lastCommandTime < 100) { // 100ms cooldown
       return;
     }
     setLastCommandTime(now);
+    
+    if (isProcessing) {
+      return; // Prevent multiple simultaneous queries
+    }
 
     // Security: Sanitize input to prevent XSS
     const sanitizedInput = input.trim().replace(/[<>\"'&]/g, '');
@@ -169,10 +185,43 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     } else if (cmd === '') {
       output = [];
     } else {
-      output = [
-        `Command not found: ${sanitizedInput}`,
-        'Type "help" for available commands.',
-      ];
+      // Try AI assistant for natural language queries
+      setIsProcessing(true);
+      
+      try {
+        let aiResponse: string[] | null = null;
+        
+        // Check if it's an "ask" command
+        const question = cmd.startsWith('ask ') ? sanitizedInput.substring(4).trim() : sanitizedInput;
+        
+        // Use browser-based AI for intelligent responses
+        aiResponse = await getBrowserAIResponse(question);
+        
+        if (aiResponse) {
+          output = aiResponse;
+        } else {
+          output = [
+            `Command not found: ${sanitizedInput}`,
+            '',
+            '💡 Tip: Try asking a question naturally, like:',
+            '  "what is digital forensics?"',
+            '  "tell me about firewalls"',
+            '  "explain your experience"',
+            '',
+            'Or type "help" for available commands.',
+          ];
+        }
+      } catch (error) {
+        console.error('AI processing error:', error);
+        output = [
+          '⚠️ Error processing your question',
+          '',
+          'Please try again or use standard commands.',
+          'Type "help" to see available commands.',
+        ];
+      } finally {
+        setIsProcessing(false);
+      }
     }
 
     const newCommand: Command = {
@@ -195,8 +244,10 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      executeCommand(currentInput);
-      setCurrentInput('');
+      if (!isProcessing) {
+        executeCommand(currentInput);
+        setCurrentInput('');
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (commandHistory.length > 0) {
@@ -233,14 +284,33 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen && commands.length === 0) {
+      // Preload AI model in background
+      preloadAI();
+      
       // Show welcome message when terminal opens
       const welcomeCommand: Command = {
         input: '',
         output: [
-          '🛡️ Welcome to Sulthan\'s Cybersecurity Terminal',
+          '═══════════════════════════════════════════════════════════',
+          '  SULTHAN CYBERSECURITY TERMINAL ',
+          '  AI-Powered Interactive Shell',
+          '═══════════════════════════════════════════════════════════',
           '',
-          'Type "help" to see available commands.',
-          'Press Ctrl+` to toggle terminal.',
+          'System: Ubuntu 22.04 LTS | Kernel: 5.15.0-ai',
+          'User: sulthan@cybersec-lab',
+          'Status: ✓ Secure Connection Established',
+          '',
+          '🤖 AI Assistant: ONLINE',
+          '   Mode: Smart Pattern Matching (No API required)',
+          '   Capabilities: Expertise Q&A | Cybersecurity Knowledge',
+          '',
+          '📋 Quick Start:',
+          '   • Type "help" for command list',
+          '   • Ask questions naturally (e.g., "what is digital forensics?")',
+          '   • Use ↑/↓ for command history',
+          '',
+          '⚡ Ready for queries. Type your command below.',
+          '═══════════════════════════════════════════════════════════',
         ],
         timestamp: new Date().toLocaleTimeString(),
       };
@@ -255,8 +325,8 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       <div className={styles.terminal}>
         <div className={styles.terminalHeader}>
           <div className={styles.terminalTitle}>
-            <span className={styles.terminalIcon}>⚡</span>
-            Sulthan@cybersec-terminal
+            <span className={styles.terminalIcon}>🤖</span>
+            Sulthan@ai-cybersec-terminal
           </div>
           <button className={styles.closeButton} onClick={onClose}>
             ✕
@@ -299,6 +369,8 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
               autoComplete="off"
               spellCheck="false"
               maxLength={100}
+              disabled={isProcessing}
+              placeholder={isProcessing ? 'Processing...' : ''}
             />
           </div>
         </div>
