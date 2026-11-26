@@ -1,0 +1,47 @@
+---
+title: "PQEncrypt: Distributed Edge Messaging Backend & High-Availability Platform"
+publishedAt: "2025-09-01"
+summary: "Architected a fault-tolerant distributed signaling backend on AWS EC2 supporting concurrent WebSocket peer sessions with >99.9% uptime, post-quantum encryption (NIST FIPS 203), and AI-powered diagnostic workflows via MCP."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Muhammad Sulthan"
+    role: "Backend Architect & Security Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/muhdsulthan/"
+---
+
+## Overview
+
+PQEncrypt is a fault-tolerant distributed messaging and signaling backend that combines real-time WebSocket/WebRTC peer connectivity with post-quantum cryptographic security. Built on AWS EC2, the platform maintains greater than 99.9% service availability through automated health checks and zero-downtime CI/CD deployments, while securing all communications with NIST FIPS 203 ML-KEM (Kyber) post-quantum encryption.
+
+## Architecture
+
+The backend is a distributed Node.js signaling server deployed across AWS EC2 instances, with WebSocket connections for real-time peer session management and WebRTC for peer-to-peer media negotiation. An AI-powered diagnostic layer using Model Context Protocol (MCP) and LLM agents continuously inspects traffic patterns for anomalies.
+
+## Key Features
+
+- **Post-Quantum Security**: End-to-end encryption using liboqs (NIST FIPS 203 ML-KEM / Kyber) to future-proof against quantum computing attacks.
+- **High Availability**: >99.9% service availability maintained through automated health-check endpoints and failover logic across AWS EC2 instances.
+- **Zero-Downtime CI/CD**: GitHub Actions pipeline with zero-downtime deployment gates — no broken builds reach production.
+- **WebSocket & WebRTC Signaling**: Concurrent peer session management supporting real-time, low-latency bidirectional communication.
+- **AI-Powered Diagnostics**: Model Context Protocol (MCP) integrated with LLM agents to automatically inspect and classify abnormal payload traffic, socket errors, and latency degradation in real time.
+- **REST API Layer**: Clean REST endpoints for session management, health monitoring, and administrative controls.
+
+## Technologies Used
+
+- **Node.js**: Core backend runtime for the signaling server.
+- **AWS EC2**: Cloud hosting with multi-instance fault tolerance and VPC networking.
+- **WebSockets & WebRTC**: Real-time bidirectional communication and peer-to-peer media channels.
+- **liboqs (NIST FIPS 203 ML-KEM)**: Post-quantum cryptography library for Kyber key encapsulation.
+- **GitHub Actions CI/CD**: Automated build, test, and deployment pipeline with zero-downtime releases.
+- **MCP (Model Context Protocol)**: LLM agent integration for AI-powered traffic diagnostics.
+- **REST APIs**: RESTful endpoints for session, health, and admin management.
+
+## Challenges and Learnings
+
+Integrating post-quantum key encapsulation (ML-KEM/Kyber) into a live WebSocket handshake flow required careful performance benchmarking — the KEM operations needed to be non-blocking to avoid connection setup latency. Designing the MCP agent integration to classify socket errors and latency spikes without false positives required iterative prompt engineering and threshold tuning.
+
+## Outcome
+
+The platform achieved greater than 99.9% service availability across all test periods, with zero-downtime deployments fully automated through GitHub Actions. The post-quantum encryption layer added no meaningful latency overhead to connection setup, and the MCP/LLM diagnostic workflow reduced mean time to anomaly detection by flagging abnormal patterns before human operators would have noticed.

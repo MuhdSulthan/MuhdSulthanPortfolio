@@ -1,0 +1,47 @@
+---
+title: "RAAPD: High-Throughput Distributed Telemetry & Anomaly Detection Platform"
+publishedAt: "2025-06-01"
+summary: "Architected a high-throughput network telemetry pipeline ingesting 5,000+ packets/sec via Scapy, with containerized microservices on Kubernetes and real-time anomaly detection using Prometheus & Grafana."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Muhammad Sulthan"
+    role: "Architect & Lead Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/muhdsulthan/"
+---
+
+## Overview
+
+RAAPD (Real-time Anomaly & Packet Detection) is a production-grade distributed telemetry platform designed to ingest, process, and analyze high-volume network traffic in real time. The system decouples network packet ingestion from CPU-bound feature extraction using asynchronous worker queues, enabling sustained throughput of 5,000+ packets per second without frame drops.
+
+## Architecture
+
+The platform is built on a microservices architecture deployed via Kubernetes and Docker, with each service independently scalable. Network ingestion, feature extraction, anomaly classification, and alerting are separated into dedicated services communicating through asynchronous queues.
+
+## Key Features
+
+- **High-Throughput Ingestion**: Python + Scapy pipeline capable of capturing and processing 5,000+ network packets per second.
+- **Async Decoupling**: Asynchronous worker queues decouple network ingestion from CPU-intensive feature extraction, preventing packet frame drops under load.
+- **Containerized Deployment**: All services containerized with Docker and orchestrated via Kubernetes for horizontal scalability and fault isolation.
+- **Observability Stack**: Prometheus & Grafana dashboards tracking SLIs/SLOs with alerting on anomaly thresholds and service health metrics.
+- **Load Testing**: Locust-driven load tests validate sub-second PostgreSQL query latency under sustained traffic spikes.
+- **Anomaly Detection**: Statistical and ML-based anomaly detection flags unusual traffic patterns in real time with configurable alert thresholds.
+
+## Technologies Used
+
+- **Python & Scapy**: Core packet capture and feature extraction engine.
+- **Flask**: REST API layer for configuration and status endpoints.
+- **Docker & Kubernetes**: Containerization and orchestration for microservice deployment.
+- **PostgreSQL**: Persistent storage for telemetry records and anomaly events.
+- **Prometheus & Grafana**: Metrics collection, SLI/SLO tracking, and visualization.
+- **Locust**: Load testing and performance benchmarking.
+- **Linux/UNIX**: Host OS for packet capture interfaces and system-level tuning.
+
+## Challenges and Learnings
+
+The primary engineering challenge was eliminating head-of-line blocking between the high-speed packet capture loop and the slower feature extraction workers. Using asynchronous queues with backpressure mechanisms allowed the ingestion layer to remain non-blocking. Tuning Kubernetes resource limits and PostgreSQL connection pooling was essential to maintain sub-second query latency under Locust-generated load.
+
+## Outcome
+
+The platform sustained 5,000+ packets/second ingestion with sub-second query latency across all load test scenarios. The Prometheus/Grafana observability stack provided full visibility into service health, enabling proactive alerting before SLO thresholds were breached.
