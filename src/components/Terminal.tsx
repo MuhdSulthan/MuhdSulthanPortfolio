@@ -17,6 +17,48 @@ interface Command {
   timestamp: string;
 }
 
+function getOutputLineClass(line: string): string {
+  if (
+    line.includes('Python') ||
+    line.includes('JavaScript') ||
+    line.includes('VMware')
+  ) {
+    return `${styles.commandOutput} ${styles.cyanText}`;
+  }
+  if (
+    line.includes('pfSense') ||
+    line.includes('AXIOM') ||
+    line.includes('Cellebrite')
+  ) {
+    return `${styles.commandOutput} ${styles.orangeText}`;
+  }
+  if (
+    line.includes('firewall') ||
+    line.includes('forensics') ||
+    line.includes('security')
+  ) {
+    return `${styles.commandOutput} ${styles.redText}`;
+  }
+  if (line.includes('https://')) {
+    return `${styles.commandOutput} ${styles.linkText}`;
+  }
+  if (line.includes('•') || line.includes('├─') || line.includes('└─')) {
+    return `${styles.commandOutput} ${styles.greenText}`;
+  }
+  if (
+    line.includes('🏆') ||
+    line.includes('🛡️') ||
+    line.includes('📜') ||
+    line.includes('💼') ||
+    line.includes('🚀') ||
+    line.includes('🌐') ||
+    line.includes('📋')
+  ) {
+    return `${styles.commandOutput} ${styles.goldText}`;
+  }
+  return styles.commandOutput;
+}
+
 const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
   const [commands, setCommands] = useState<Command[]>([]);
   const [currentInput, setCurrentInput] = useState('');
@@ -379,7 +421,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
                 </div>
               )}
               {command.output.map((line, lineIndex) => (
-                <div key={lineIndex} className={styles.commandOutput}>
+                <div key={lineIndex} className={getOutputLineClass(line)}>
                   {line}
                 </div>
               ))}

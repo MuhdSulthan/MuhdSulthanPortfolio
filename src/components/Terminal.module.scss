@@ -133,22 +133,31 @@
   &:empty {
     height: 1.5em;
   }
+}
 
-  // Style for different types of output
-  &:has-text("🏆"), &:has-text("🛡️"), &:has-text("📜"), &:has-text("💼"), &:has-text("🚀"), &:has-text("🌐"), &:has-text("📋") {
-    color: #ffd700;
-    font-weight: 600;
-  }
+.goldText {
+  color: #ffd700;
+  font-weight: 600;
+}
 
-  // Style for bullet points and tree structures
-  &:contains("•"), &:contains("├─"), &:contains("└─") {
-    color: #7ee787;
-  }
+.greenText {
+  color: #7ee787;
+}
 
-  // Style for URLs
-  &:contains("https://") {
-    color: #58a6ff;
-  }
+.linkText {
+  color: #58a6ff;
+}
+
+.redText {
+  color: #ff7b72;
+}
+
+.orangeText {
+  color: #ffa657;
+}
+
+.cyanText {
+  color: #79c0ff;
 }
 
 .inputLine {
@@ -212,22 +221,6 @@
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
-  }
-}
-
-// Cybersecurity themed colors and effects
-.commandOutput {
-  // Highlight security-related keywords
-  &:contains("firewall"), &:contains("forensics"), &:contains("security") {
-    color: #ff7b72;
-  }
-
-  &:contains("pfSense"), &:contains("AXIOM"), &:contains("Cellebrite") {
-    color: #ffa657;
-  }
-
-  &:contains("Python"), &:contains("JavaScript"), &:contains("VMware") {
-    color: #79c0ff;
   }
 }
 
