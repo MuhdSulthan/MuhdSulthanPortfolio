@@ -19,6 +19,12 @@ import { HiDevicePhoneMobile } from "react-icons/hi2";
 import { HiCog6Tooth } from "react-icons/hi2";
 import { HiServerStack } from "react-icons/hi2";
 import { HiComputerDesktop } from "react-icons/hi2";
+import { HiCircleStack } from "react-icons/hi2";
+import { HiCloud } from "react-icons/hi2";
+import { HiMagnifyingGlass } from "react-icons/hi2";
+import { HiExclamationTriangle } from "react-icons/hi2";
+import { HiBuildingOffice2 } from "react-icons/hi2";
+import { HiCube } from "react-icons/hi2";
 
 import {
   PiHouseDuotone,
@@ -86,6 +92,12 @@ export const iconLibrary: Record<string, IconType> = {
   settings: HiCog6Tooth,
   activity: HiOutlineEye,
   server: HiServerStack,
+  database: HiCircleStack,
+  cloud: HiCloud,
+  search: HiMagnifyingGlass,
+  alert: HiExclamationTriangle,
+  building: HiBuildingOffice2,
+  cube: HiCube,
 
   // Tech stack icons
   javascript: SiJavascript,
