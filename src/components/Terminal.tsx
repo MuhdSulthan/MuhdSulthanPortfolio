@@ -181,7 +181,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       return;
     }
     setLastCommandTime(now);
-    
+
     if (isProcessing) {
       return; // Prevent multiple simultaneous queries
     }
@@ -190,7 +190,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     const sanitizedInput = input.trim().replace(/[<>\"'&]/g, '');
     const cmd = sanitizedInput.toLowerCase();
     const timestamp = new Date().toLocaleTimeString();
-    
+
     let output: string[] = [];
 
     // Security: Limit input length to prevent DoS
@@ -222,16 +222,16 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     } else {
       // Try AI assistant for natural language queries
       setIsProcessing(true);
-      
+
       try {
         let aiResponse: string[] | null = null;
-        
+
         // Check if it's an "ask" command
         const question = cmd.startsWith('ask ') ? sanitizedInput.substring(4).trim() : sanitizedInput;
-        
+
         // Use browser-based AI for intelligent responses
         aiResponse = await getBrowserAIResponse(question);
-        
+
         if (aiResponse) {
           output = aiResponse;
         } else {
@@ -321,7 +321,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
     if (isOpen && commands.length === 0) {
       // Preload AI model in background
       preloadAI();
-      
+
       // Show welcome message when terminal opens
       const welcomeCommand: Command = {
         input: '',
@@ -367,7 +367,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
             ✕
           </button>
         </div>
-        
+
         <div className={styles.terminalBody} ref={terminalRef}>
           {commands.map((command, index) => (
             <div key={index} className={styles.commandBlock}>
@@ -385,7 +385,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
               ))}
             </div>
           ))}
-          
+
           <div className={styles.inputLine}>
             <span className={styles.prompt}>sulthan@cybersec:~$</span>
             <input
