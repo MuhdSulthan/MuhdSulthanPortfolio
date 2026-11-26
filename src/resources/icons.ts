@@ -25,6 +25,9 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { HiExclamationTriangle } from "react-icons/hi2";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { HiCube } from "react-icons/hi2";
+import { HiChevronRight } from "react-icons/hi2";
+
+
 
 import {
   PiHouseDuotone,
@@ -98,6 +101,7 @@ export const iconLibrary: Record<string, IconType> = {
   alert: HiExclamationTriangle,
   building: HiBuildingOffice2,
   cube: HiCube,
+  chevronRight: HiChevronRight,
 
   // Tech stack icons
   javascript: SiJavascript,
